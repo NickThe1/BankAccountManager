@@ -14,9 +14,10 @@ public strictfp class Money implements IComparableCustom<Money> {
     private long amount;
     private int transactionFee;
 
-    public Money(String currencyName, long amount) {
+    public Money(String currencyName, long amount, int transactionFee) {
         this.currencyName = currencyName;
         this.amount = amount;
+        this.transactionFee = transactionFee;
     }
 
     public static Set<String> getCurrencyNames() {
@@ -31,7 +32,7 @@ public strictfp class Money implements IComparableCustom<Money> {
         return currencyName;
     }
 
-    protected void setCurrencyName(String currencyName) {
+    public void setCurrencyName(String currencyName) {
         if(currencyNames.contains(currencyName))  this.currencyName = currencyName;
         else System.out.println("Wrong currency type");
     }
@@ -40,7 +41,7 @@ public strictfp class Money implements IComparableCustom<Money> {
         return amount;
     }
 
-    protected void setAmount(long amount) {
+    public void setAmount(long amount) {
         this.amount = amount;
     }
 
@@ -48,7 +49,7 @@ public strictfp class Money implements IComparableCustom<Money> {
         return transactionFee;
     }
 
-    protected void setTransactionFee(int transactionFee) {
+    public void setTransactionFee(int transactionFee) {
         this.transactionFee = transactionFee;
     }
 
@@ -74,12 +75,12 @@ public strictfp class Money implements IComparableCustom<Money> {
                 '}';
     }
 
-    protected long add(long amount, String currencyName){
+    public long add(long amount, String currencyName){
         if(this.currencyName == currencyName && currencyName != null) return this.amount += amount - transactionFee;
         else return this.amount;
     }
 
-    protected long subtract(long amount, String currencyName){
+    public long subtract(long amount, String currencyName){
         if(this.currencyName == currencyName && currencyName != null) return this.amount -= amount - transactionFee;
         else return this.amount;
     }
