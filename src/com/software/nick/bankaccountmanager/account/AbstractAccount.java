@@ -55,4 +55,6 @@ public abstract class AbstractAccount {
     public void setExpirationDate(int expirationDate) {
         this.expirationDate = expirationDate;
     }
+
+    protected abstract void exchangeMoney();
 }
