@@ -16,6 +16,14 @@ public abstract class AbstractAccount {
     public AbstractAccount(){
     }
 
+    public AbstractAccount(Set<Money> moneySet, int id, String firstName, String lastName, int expirationDate) {
+        this.moneySet = moneySet;
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.expirationDate = expirationDate;
+    }
+
     public Set<Money> getMoneySet() {
         return moneySet;
     }
